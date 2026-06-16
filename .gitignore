@@ -6,3 +6,7 @@ __pycache__/
 .DS_Store
 scratch_shap_gen.py
 *.npy
+*.pt
+catboost_info/
+submissions/catboost_info/
+kaggle_notebooks/
