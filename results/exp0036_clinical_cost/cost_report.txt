@@ -1,0 +1,3 @@
+Total Cost: 0.34962499999999996
+Undertriage Cost: 0.2826375
+Overtriage Cost: 0.06698749999999998

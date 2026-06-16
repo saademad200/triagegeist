@@ -1,0 +1,2 @@
+Patients with 3+ missing vitals have a drastically higher error rate.
+This explicitly identifies a failure mode for the model: MNAR vital signs.

@@ -1,0 +1,7 @@
+{
+    "orig_global_acc": 0.85585,
+    "mitig_global_acc": 0.8451875,
+    "elderly_shift": 0.39795918367346933,
+    "elderly_orig_ut": 0.07550916732092551,
+    "elderly_new_ut": 0.04978524915716067
+}

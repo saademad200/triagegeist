@@ -1,0 +1,150 @@
+{
+    "sex": [
+        {
+            "sex": "F",
+            "n_patients": 40339,
+            "undertriage_rate": 0.08247601576637993,
+            "overtriage_rate": 0.06918862639133345,
+            "accuracy": 0.8483353578422866
+        },
+        {
+            "sex": "M",
+            "n_patients": 37735,
+            "undertriage_rate": 0.08490791042798462,
+            "overtriage_rate": 0.06707300914270571,
+            "accuracy": 0.8480190804293096
+        },
+        {
+            "sex": "Other",
+            "n_patients": 1926,
+            "undertriage_rate": 0.10072689511941849,
+            "overtriage_rate": 0.0695742471443406,
+            "accuracy": 0.829698857736241
+        }
+    ],
+    "age_group": [
+        {
+            "age_group": "elderly",
+            "n_patients": 21653,
+            "undertriage_rate": 0.08049692883203251,
+            "overtriage_rate": 0.0731538354962361,
+            "accuracy": 0.8463492356717314
+        },
+        {
+            "age_group": "middle_aged",
+            "n_patients": 27889,
+            "undertriage_rate": 0.08698770124421815,
+            "overtriage_rate": 0.06525870414858904,
+            "accuracy": 0.8477535946071928
+        },
+        {
+            "age_group": "pediatric",
+            "n_patients": 6595,
+            "undertriage_rate": 0.07717968157695224,
+            "overtriage_rate": 0.06641394996209249,
+            "accuracy": 0.8564063684609553
+        },
+        {
+            "age_group": "young_adult",
+            "n_patients": 23863,
+            "undertriage_rate": 0.08578133512131753,
+            "overtriage_rate": 0.06763608934333487,
+            "accuracy": 0.8465825755353477
+        }
+    ],
+    "language": [
+        {
+            "language": "Arabic",
+            "n_patients": 3944,
+            "undertriage_rate": 0.09279918864097363,
+            "overtriage_rate": 0.07251521298174442,
+            "accuracy": 0.834685598377282
+        },
+        {
+            "language": "English",
+            "n_patients": 8024,
+            "undertriage_rate": 0.08611665004985045,
+            "overtriage_rate": 0.06904287138584247,
+            "accuracy": 0.8448404785643071
+        },
+        {
+            "language": "Estonian",
+            "n_patients": 4858,
+            "undertriage_rate": 0.0784273363524084,
+            "overtriage_rate": 0.07142857142857142,
+            "accuracy": 0.8501440922190202
+        },
+        {
+            "language": "Finnish",
+            "n_patients": 44134,
+            "undertriage_rate": 0.08279331127928581,
+            "overtriage_rate": 0.06729505596592196,
+            "accuracy": 0.8499116327547922
+        },
+        {
+            "language": "Other",
+            "n_patients": 3968,
+            "undertriage_rate": 0.08392137096774194,
+            "overtriage_rate": 0.07258064516129033,
+            "accuracy": 0.8434979838709677
+        },
+        {
+            "language": "Russian",
+            "n_patients": 5587,
+            "undertriage_rate": 0.08824055843923394,
+            "overtriage_rate": 0.06747807410059066,
+            "accuracy": 0.8442813674601755
+        },
+        {
+            "language": "Somali",
+            "n_patients": 3170,
+            "undertriage_rate": 0.0832807570977918,
+            "overtriage_rate": 0.06719242902208201,
+            "accuracy": 0.8495268138801262
+        },
+        {
+            "language": "Swedish",
+            "n_patients": 6315,
+            "undertriage_rate": 0.08598574821852732,
+            "overtriage_rate": 0.06666666666666667,
+            "accuracy": 0.847347585114806
+        }
+    ],
+    "insurance_type": [
+        {
+            "insurance_type": "military",
+            "n_patients": 3196,
+            "undertriage_rate": 0.09167709637046308,
+            "overtriage_rate": 0.06132665832290363,
+            "accuracy": 0.8469962453066333
+        },
+        {
+            "insurance_type": "none",
+            "n_patients": 6320,
+            "undertriage_rate": 0.0800632911392405,
+            "overtriage_rate": 0.06376582278481013,
+            "accuracy": 0.8561708860759494
+        },
+        {
+            "insurance_type": "private",
+            "n_patients": 19915,
+            "undertriage_rate": 0.08109465227215666,
+            "overtriage_rate": 0.06472508159678635,
+            "accuracy": 0.854180266131057
+        },
+        {
+            "insurance_type": "public",
+            "n_patients": 48170,
+            "undertriage_rate": 0.08557193273821881,
+            "overtriage_rate": 0.07058335063317417,
+            "accuracy": 0.843844716628607
+        },
+        {
+            "insurance_type": "unknown",
+            "n_patients": 2399,
+            "undertriage_rate": 0.07878282617757398,
+            "overtriage_rate": 0.07002917882451021,
+            "accuracy": 0.8511879949979158
+        }
+    ]
+}

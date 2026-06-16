@@ -1,0 +1,8 @@
+data/
+autoresearch/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+scratch_shap_gen.py
+*.npy
