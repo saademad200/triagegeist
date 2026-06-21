@@ -174,15 +174,15 @@ for fold, (train_idx, valid_idx) in enumerate(sgkf.split(X_train, y_train, group
     
     # === TRACK 1: PHYSIOLOGICAL ENSEMBLE ===
     print("  Training LightGBM...")
-    lgb_model = lgb.LGBMClassifier(objective='multiclass', num_class=5, n_estimators=1500, learning_rate=0.03, class_weight='balanced', random_state=42, n_jobs=-1, verbose=-1)
+    lgb_model = lgb.LGBMClassifier(objective='multiclass', num_class=5, n_estimators=500, learning_rate=0.03, class_weight='balanced', random_state=42, n_jobs=-1, verbose=-1)
     lgb_model.fit(X_tr_cat, y_tr, categorical_feature=cat_cols, eval_set=[(X_vl_cat, y_vl)], callbacks=[lgb.early_stopping(50, verbose=False)])
     
     print("  Training XGBoost...")
-    xgb_model = XGBClassifier(objective='multi:softprob', num_class=5, n_estimators=1500, learning_rate=0.03, max_depth=6, random_state=42, n_jobs=-1, eval_metric='mlogloss', enable_categorical=True, early_stopping_rounds=50)
+    xgb_model = XGBClassifier(objective='multi:softprob', num_class=5, n_estimators=500, learning_rate=0.03, max_depth=6, random_state=42, n_jobs=-1, eval_metric='mlogloss', enable_categorical=True, early_stopping_rounds=50)
     xgb_model.fit(X_tr_cat, y_tr, eval_set=[(X_vl_cat, y_vl)], verbose=False)
     
     print("  Training CatBoost...")
-    cat_model = CatBoostClassifier(loss_function='MultiClass', iterations=1500, learning_rate=0.03, depth=6, random_seed=42, verbose=0, thread_count=-1, early_stopping_rounds=50)
+    cat_model = CatBoostClassifier(loss_function='MultiClass', iterations=500, learning_rate=0.03, depth=6, random_seed=42, verbose=0, thread_count=-1, early_stopping_rounds=50)
     cat_model.fit(X_tr_phys, y_tr, cat_features=cat_idx, eval_set=(X_vl_phys, y_vl))
     
     oof_phys[valid_idx] = (lgb_model.predict_proba(X_vl_cat) + xgb_model.predict_proba(X_vl_cat) + cat_model.predict_proba(X_vl_phys)) / 3.0
