@@ -155,6 +155,7 @@ X_shap_sample = None
 
 print("Training Dual-Track Holistic Suite...")
 for fold, (train_idx, valid_idx) in enumerate(sgkf.split(X_train, y_train, groups=groups)):
+    print(f"\\n--- Fold {fold + 1}/5 ---")
     X_tr_phys, X_vl_phys = X_train.iloc[train_idx].copy(), X_train.iloc[valid_idx].copy()
     X_tr_text, X_vl_text = nlp_train[train_idx], nlp_train[valid_idx]
     X_ts_phys, X_ts_text = X_test.copy(), nlp_test
@@ -172,12 +173,15 @@ for fold, (train_idx, valid_idx) in enumerate(sgkf.split(X_train, y_train, group
         X_ts_cat[col] = pd.Categorical(X_ts_cat[col], categories=X_tr_cat[col].cat.categories)
     
     # === TRACK 1: PHYSIOLOGICAL ENSEMBLE ===
+    print("  Training LightGBM...")
     lgb_model = lgb.LGBMClassifier(objective='multiclass', num_class=5, n_estimators=1500, learning_rate=0.03, class_weight='balanced', random_state=42, n_jobs=-1, verbose=-1)
     lgb_model.fit(X_tr_cat, y_tr, categorical_feature=cat_cols, eval_set=[(X_vl_cat, y_vl)], callbacks=[lgb.early_stopping(50, verbose=False)])
     
+    print("  Training XGBoost...")
     xgb_model = XGBClassifier(objective='multi:softprob', num_class=5, n_estimators=1500, learning_rate=0.03, max_depth=6, random_state=42, n_jobs=-1, eval_metric='mlogloss', enable_categorical=True, early_stopping_rounds=50)
     xgb_model.fit(X_tr_cat, y_tr, eval_set=[(X_vl_cat, y_vl)], verbose=False)
     
+    print("  Training CatBoost...")
     cat_model = CatBoostClassifier(loss_function='MultiClass', iterations=1500, learning_rate=0.03, depth=6, random_seed=42, verbose=0, thread_count=-1, early_stopping_rounds=50)
     cat_model.fit(X_tr_phys, y_tr, cat_features=cat_idx, eval_set=(X_vl_phys, y_vl))
     
@@ -189,6 +193,7 @@ for fold, (train_idx, valid_idx) in enumerate(sgkf.split(X_train, y_train, group
         X_shap_sample = X_vl_cat.head(500)
         
     # === TRACK 2: CALIBRATED NLP MODEL (WORD+CHAR UNION) ===
+    print("  Training NLP Track (Word+Char TF-IDF)...")
     word_tfidf = TfidfVectorizer(max_features=20000, analyzer='word', ngram_range=(1,2), stop_words='english', sublinear_tf=True)
     char_tfidf = TfidfVectorizer(max_features=40000, analyzer='char_wb', ngram_range=(3,5), sublinear_tf=True)
     
